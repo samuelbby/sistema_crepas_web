@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Crepas</title>
+    <style>
+        body {
+        background-image: url('/static/imagenes_crepas/889.jpg');
+         
+        background-position: center center; /* Centra la imagen en la pantalla */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        height: 100vh; /* Asegura que la imagen cubra toda la altura de la ventana */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            margin-right: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Menú de crepas obito</h1>
+    </header>
+    <div class="container">
+        <form action="/agregar" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre de la crepa" required>
+            <button type="submit">Agregar Crepa</button>
+        </form>
+
+        <h2>Menú</h2>
+        <ul>
+            {% for crepa in crepas %}
+                <li>{{ crepa }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
